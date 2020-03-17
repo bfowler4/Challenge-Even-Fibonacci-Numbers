@@ -7,23 +7,33 @@
  */
 function _sumFibs( maxFibValue ) {
   var sum = 0;
+  let nums = getFibonacciNumbers(maxFibValue);
 
-  // do your work here
-
+  nums.forEach((curr) => {
+    if (curr % 2 === 0) {
+      sum += curr;
+    }
+  });
   return sum;
 }
 
 // bonus round
 function _highestFibonacciNumber (maxFibValue){
-  var highest = 0;
+  return getFibonacciNumbers(maxFibValue).pop();
+}
 
-  //define your base case, validate your input
-
-
-  //do your work here
-
-  return highest;
-};
+function getFibonacciNumbers(maxValue) {
+  let result = [1, 2];
+  while (true) {
+    let numToAdd = result[result.length - 1] + result[result.length - 2];
+    if (numToAdd <= maxValue) {
+      result.push(numToAdd);
+    } else {
+      break;
+    }
+  }
+  return result;
+}
 
 /**
  * Do not modify code below.
